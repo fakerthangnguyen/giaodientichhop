@@ -69,20 +69,20 @@
                         <ul class="widget widget-menu unstyled">
                             <li class="active">
                                 <a href="~/">
-                                    <i class="menu-icon icon-dashboard"></i>Dashboard
+                                    <i class="menu-icon icon-dashboard"></i>Shareholder
                                 </a>
                             </li>
                             <li>
-                                <a href="~/Personals"><i class="menu-icon icon-bullhorn"></i>Personal List </a>
+                                <a href="~/Personals"><i class="menu-icon icon-bullhorn"></i>Non-shareholder </a>
                             </li>
                             <li>
                                 <a href="~/BenefitPlans">
-                                    <i class="menu-icon icon-tasks"></i>Benefit Plans
+                                    <i class="menu-icon icon-tasks"></i>Male
                                 </a>
                             </li>
                             <li>
                                 <a href="~/JobHistory">
-                                    <i class="menu-icon icon-inbox"></i>Job History
+                                    <i class="menu-icon icon-inbox"></i>Female
                                 </a>
                             </li>
                         </ul>
@@ -90,9 +90,9 @@
                             <li>
                                 <a class="collapsed" data-toggle="collapse" href="#togglePages">
                                     <i class="menu-icon icon-cog">
-                                    </i><i class="icon-chevron-down pull-right"></i><i
+                                    </i><i
                                         class="icon-chevron-up pull-right">
-                                    </i>More Pages
+                                    </i>Full-time
                                 </a>
                                 <ul id="togglePages" class="collapse unstyled">
                                     <li><a href="#"><i class="icon-inbox"></i>Login </a></li>
@@ -100,7 +100,7 @@
                                     <li><a href="#"><i class="icon-inbox"></i>All Users </a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                            <li><a href="#"><i class="menu-icon icon-signout"></i>Part-time</a></li>
                         </ul>
                     </div>
                     <!--/.sidebar-->
@@ -129,19 +129,19 @@
                             </div>
 
                             <div class="btn-box-row row-fluid">
-        <!-- Tổng thu nhập chia theo shareholder, giới tính, dân tộc, full-time, part-time (tính từ năm trước đến giờ ?chắc vậy?), theo phòng ban -->
+        <!-- Tổng thu nhập theo shareholder(HR.Personal), giới tính(HR.Personal), dân tộc(HR.Personal), full-time(HR.Employment), part-time(HR.Employment) tính từ năm trước đến giờ (payroll.employee.to-date%last-year), theo phòng ban(HR.Job_History) -->
                                 <a href="#" class="btn-box big span4">
                                     <i class="icon-money"></i><b>30.000$</b>
                                     <p class="text-muted">
                                         Total Earnings
                                     </p>
-        <!-- Tổng ngày nghỉ nhận được theo shareholder, giới tính, dân tộc, full-time, part-time -->
+        <!-- Tổng ngày nghỉ nhận được theo shareholder(HR.Personal), giới tính(HR.Personal), dân tộc(HR.Personal), full-time(HR.Employment), part-time(HR.Employment) tính từ năm trước đến giờ(cái ni đéo biết ở mô) -->
                                 </a><a href="#" class="btn-box big span4">
                                     <i class="icon-user"></i><b>20</b>
                                     <p class="text-muted">
                                         Total Vacation Days
                                     </p>
-        <!-- Trung bình benefits được trả cho shareholder và non-shareholder tới nay theo Benefits-Plan -->
+        <!-- Trung bình benefits được trả cho shareholder(HR.Personal) và non-shareholder(HR.Personal) tới nay(HR.Job-History?) theo Benefits-Plan(HR.Personal) -->
                                 </a><a href="#" class="btn-box big span4">
                                     <i class="icon-money"></i><b>15.000%</b>
                                     <p class="text-muted">
