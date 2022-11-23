@@ -68,21 +68,21 @@
                     <div class="sidebar">
                         <ul class="widget widget-menu unstyled">
                             <li class="active">
-                                <a href="~/">
-                                    <i class="menu-icon icon-dashboard"></i>Shareholder
+                                <a id="btn-shareholder"  href="#">
+                                    <i id="icon-user" class="icon-user"></i> Shareholder
                                 </a>
                             </li>
                             <li>
-                                <a href="~/Personals"><i class="menu-icon icon-bullhorn"></i>Non-shareholder </a>
+                                <a id="btn-none_shareholder" href="#"><i class="icon-ban-circle"></i>Non-shareholder </a>
                             </li>
                             <li>
-                                <a href="~/BenefitPlans">
-                                    <i class="menu-icon icon-tasks"></i>Male
+                                <a id="btn-male" href="#">
+                                    <i class="icon-male"></i>Male
                                 </a>
                             </li>
                             <li>
-                                <a href="~/JobHistory">
-                                    <i class="menu-icon icon-inbox"></i>Female
+                                <a id="btn-female" href="#">
+                                    <i class="icon-female"></i>Female
                                 </a>
                             </li>
                         </ul>
@@ -102,6 +102,20 @@
                             </li>
                             <li><a href="#"><i class="menu-icon icon-signout"></i>Part-time</a></li>
                         </ul>
+
+                        <ul class="widget widget-menu unstyled">
+                            
+                            <li><a href="#"><i class="icon-phone"></i>
+                                <select id="Ethnicity" name="" id="">
+                                    <option value="">--Chọn--</option>
+                                    <option value="tay">Tày</option>
+                                    <option value="khome">Khơ-me</option>
+                                    <option value="homong">H-mong</option>
+                                    <option value="kinh">Kinh</option>
+                                </select>
+                            </a></li>
+                        </ul>
+                        
                     </div>
                     <!--/.sidebar-->
                 </div>
@@ -109,7 +123,7 @@
                 <div class="span9">
                     <div class="content">
                         <div class="btn-controls">
-                            <div class="btn-box-row row-fluid">
+                            <!-- <div class="btn-box-row row-fluid">
                                 <a href="#" class="btn-box big span4">
                                     <i class=" icon-random"></i><b>65%</b>
                                     <p class="text-muted">
@@ -126,24 +140,24 @@
                                         Profit
                                     </p>
                                 </a>
-                            </div>
+                            </div> -->
 
                             <div class="btn-box-row row-fluid">
         <!-- Tổng thu nhập theo shareholder(HR.Personal), giới tính(HR.Personal), dân tộc(HR.Personal), full-time(HR.Employment), part-time(HR.Employment) tính từ năm trước đến giờ (payroll.employee.to-date%last-year), theo phòng ban(HR.Job_History) -->
                                 <a href="#" class="btn-box big span4">
-                                    <i class="icon-money"></i><b>30.000$</b>
+                                    <i  class="icon-money"></i><b id="earn-shareholder">0</b>
                                     <p class="text-muted">
                                         Total Earnings
                                     </p>
         <!-- Tổng ngày nghỉ nhận được theo shareholder(HR.Personal), giới tính(HR.Personal), dân tộc(HR.Personal), full-time(HR.Employment), part-time(HR.Employment) tính từ năm trước đến giờ(cái ni đéo biết ở mô) -->
                                 </a><a href="#" class="btn-box big span4">
-                                    <i class="icon-user"></i><b>20</b>
+                                    <i class="icon-calendar"></i><b id="total-vacationday">0</b>
                                     <p class="text-muted">
                                         Total Vacation Days
                                     </p>
         <!-- Trung bình benefits được trả cho shareholder(HR.Personal) và non-shareholder(HR.Personal) tới nay(HR.Job-History?) theo Benefits-Plan(HR.Personal) -->
                                 </a><a href="#" class="btn-box big span4">
-                                    <i class="icon-money"></i><b>15.000%</b>
+                                    <i class="icon-bar-chart"></i><b id="Average_benefits">0</b>
                                     <p class="text-muted">
                                         Average benefits paid
                                     </p>
@@ -1386,7 +1400,11 @@
 
 
 
-
+    
+    <script src="/app.js">
+        // import axios from "axios"
+        
+    </script>
 
 </body>
 
