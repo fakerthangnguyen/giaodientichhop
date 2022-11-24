@@ -1141,12 +1141,11 @@ input[type="submit"].btn-block {
 }
 .widget-menu {
   background: #fff;
-
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-
   overflow: hidden;
+  
 }
 .widget-menu a {
   color: #555;
@@ -1984,6 +1983,14 @@ input[type="submit"].btn-block {
 .ui-slider-vertical .ui-slider-range-max {
   top: 0;
 }
+
+.icon-user,
+.icon-ban-circle,
+.icon-male,
+.icon-female {
+  margin-right: 10px;
+}
+
 .docs + .docs {
   margin-top: 30px;
 }
