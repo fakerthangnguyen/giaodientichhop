@@ -5,10 +5,94 @@ const btn_none_shareholder = document.getElementById("btn-none_shareholder");
 const btn_male = document.getElementById("btn-male");
 const btn_female = document.getElementById("btn-female");
 const Ethnicity = document.getElementById("Ethnicity");
+const table_info = document.getElementById("table_info");
 
 const earn_shareholder = document.getElementById("earn-shareholder");
 const total_vacationday = document.querySelector("#total-vacationday");
 const Average_benefits = document.getElementById("Average_benefits");
+
+function loadData() {
+  const getHr = async () => {
+    const res_Hr = await fetch("http://localhost:54418/api/Personals");
+    return res_Hr.json();
+  };
+
+  getHr().then((data_Hr) => {
+    fetch("http://127.0.0.1/payroldb/public/api/employee")
+      .then((res_payroll) => {
+        return res_payroll.json();
+      })
+      .then((data_Payrol) => {
+        const htmt = data_Hr.map((item_Hr, index) => {
+          return `<tr class="gradeX odd">
+                    <td class="  sorting_1">
+                        ${item_Hr.First_Name} ${item_Hr.Last_Name}
+                    </td>
+                    <td class=" ">
+                      ${item_Hr.City}
+                    </td>
+                    <td class=" ">
+                      ${item_Hr.Email}
+                    </td>
+                    <td class=" ">
+                      ${item_Hr.Phone_Number}
+                    </td>
+                    <td class="center ">
+                    ${item_Hr.Gender == true ? "Male" : "Female"}
+                    </td>
+                    <td class="center ">
+                    ${item_Hr.Shareholder_Status == true ? "Yes" : "No"}
+                    </td>
+                    <td class=" ">
+                        ${data_Payrol[index].SSN}
+                    </td>
+                    <td class=" ">
+                    ${data_Payrol[index].Vacation_Days}
+                    </td>
+                    <td class=" ">
+                        <a href="./edit.html">Edit</a> |
+                        <a onclick= "DeleteEmployee(${
+                          item_Hr.Employee_ID
+                        })" href="#">Delete</a>
+                    </td>
+              </tr>`;
+        });
+
+        return htmt;
+      })
+      .then((res) => {
+        table_info.innerHTML = res.join("");
+      });
+  });
+}
+
+loadData();
+
+function DeleteEmployee(id) {
+  let text = `Are you sure delete ${id}?`;
+  if (confirm(text) == true) {
+    fetch(`http://localhost:54418/api/Personals/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .catch((e) => alert("Hr: delete fail"))
+      .then((res) => {
+        alert("HR: delete success");
+        fetch(`http://127.0.0.1/payroldb/public/api/employee/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .catch((e) => alert("Payroll: delete fail"))
+
+          .then((res) => {
+            alert("Payroll: delete success");
+            window.location.reload();
+          });
+      });
+  } else {
+    console.log("Cancel");
+  }
+}
 
 btn_shareholder.onclick = () => {
   // let listEmployee = [];

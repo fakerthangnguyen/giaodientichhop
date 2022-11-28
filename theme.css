@@ -1145,7 +1145,6 @@ input[type="submit"].btn-block {
   -moz-border-radius: 3px;
   border-radius: 3px;
   overflow: hidden;
-  
 }
 .widget-menu a {
   color: #555;
@@ -2039,6 +2038,20 @@ input[type="submit"].btn-block {
 }
 .docs-example .pre .atv {
   color: #d14;
+}
+
+#btn-create {
+  display: block;
+  width: fit-content;
+  border-radius: 4px;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  transition: all 0.3s ease;
+}
+#btn-create:hover {
+  font-style: italic;
 }
 
 .docs-example:after {

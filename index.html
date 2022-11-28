@@ -16,7 +16,7 @@
         rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="/bootstrap.min.js"> </script>
-    <title>Document</title>
+    <title>Giao Diện Tích Hợp</title>
 </head>
 
 <body>
@@ -120,7 +120,10 @@
                     <!--/.sidebar-->
                 </div>
                 <!--/.span3-->
+
                 <div class="span9">
+                    <a href="./add.html" id="btn-create"><i class="icon-plus-sign"></i> Create new </a>
+
                     <div class="content">
                         <div class="btn-controls">
                             <!-- <div class="btn-box-row row-fluid">
@@ -167,146 +170,28 @@
                                             Shareholder
                                         : activate to sort column ascending" style="width: 79px;">
                                             Shareholder
-                                        </th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=": activate to sort column ascending" style="width: 79px;"></th></tr>
+                                        </th>
+                                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                            Shareholder
+                                        : activate to sort column ascending" style="width: 79px;">
+                                            SSN
+                                        </th>
+                                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                            Shareholder
+                                        : activate to sort column ascending" style="width: 79px;">
+                                            Vacation days
+                                        </th>
+                                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=": activate to sort column ascending" style="width: 79px;">Actions</th></tr>
                     
                                 </thead>
                                 
-                            <tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="gradeX odd">
-                                            <td class="  sorting_1">
-                                                Dao
-                                                Nguyen
-                                            </td>
-                                            <td class=" ">
-                                                Đà Nẵng
-                                            </td>
-                                            <td class=" ">
-                                                nguyenbathanh5@gmail.com
-                                            </td>
-                                            <td class=" ">
-                                                0905002003
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Male
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Yes
-                                            </td>
-                                            <td class=" ">
-                                                <a href="/Personals/Edit/2">Edit</a> |
-                                                
-                                                <a href="/Personals/Delete/2">Delete</a>
-                                            </td>
-                                        </tr><tr class="gradeX even">
-                                            <td class="  sorting_1">
-                                                Ngo
-                                                Truong
-                                            </td>
-                                            <td class=" ">
-                                                Đà Nẵng
-                                            </td>
-                                            <td class=" ">
-                                                nguyentthanhhuyen@gmail.com
-                                            </td>
-                                            <td class=" ">
-                                                0905001003
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Female
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Yes
-                                            </td>
-                                            <td class=" ">
-                                                <a href="/Personals/Edit/3">Edit</a> |
-                                                
-                                                <a href="/Personals/Delete/3">Delete</a>
-                                            </td>
-                                        </tr><tr class="gradeX odd">
-                                            <td class="  sorting_1">
-                                                Nguyen
-                                                Thang
-                                            </td>
-                                            <td class=" ">
-                                                Đà Nẵng
-                                            </td>
-                                            <td class=" ">
-                                                truongquanghuy@gmail.com
-                                            </td>
-                                            <td class=" ">
-                                                0796504842
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Male
-                                            </td>
-                                            <td class="center ">
-                    
-                                                No
-                                            </td>
-                                            <td class=" ">
-                                                <a href="/Personals/Edit/5">Edit</a> |
-                                                
-                                                <a href="/Personals/Delete/5">Delete</a>
-                                            </td>
-                                        </tr><tr class="gradeX even">
-                                            <td class="  sorting_1">
-                                                Nguyen
-                                                Thanh
-                                            </td>
-                                            <td class=" ">
-                                                Đà Nẵng
-                                            </td>
-                                            <td class=" ">
-                                                ttminhthu@gmail.com
-                                            </td>
-                                            <td class=" ">
-                                                0796504819
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Female
-                                            </td>
-                                            <td class="center ">
-                    
-                                                No
-                                            </td>
-                                            <td class=" ">
-                                                <a href="/Personals/Edit/4">Edit</a> |
-                                                
-                                                <a href="/Personals/Delete/4">Delete</a>
-                                            </td>
-                                        </tr><tr class="gradeX odd">
-                                            <td class="  sorting_1">
-                                                Tuan
-                                                Huynh
-                                            </td>
-                                            <td class=" ">
-                                                Đà Nẵng
-                                            </td>
-                                            <td class=" ">
-                                                lexuanchau2001@gmail.com
-                                            </td>
-                                            <td class=" ">
-                                                0905001002
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Male
-                                            </td>
-                                            <td class="center ">
-                    
-                                                Yes
-                                            </td>
-                                            <td class=" ">
-                                                <a href="/Personals/Edit/1">Edit</a> |
-                                                
-                                                <a href="/Personals/Delete/1">Delete</a>
-                                            </td>
-                                        </tr></tbody></table>
+                            <tbody id="table_info" role="alert" aria-live="polite" aria-relevant="all">
+                                        
+                                        
+                                    
+                            </tbody>
+                                    
+                            </table>
 
                             <div class="btn-box-row row-fluid">
         <!-- Tổng thu nhập theo shareholder(HR.Personal), giới tính(HR.Personal), dân tộc(HR.Personal), full-time(HR.Employment), part-time(HR.Employment) tính từ năm trước đến giờ (payroll.employee.to-date%last-year), theo phòng ban(HR.Job_History) -->
