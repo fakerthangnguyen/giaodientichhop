@@ -29,9 +29,6 @@ btn_create.onclick = (e) => {
   const input_email = document.getElementById("input_email").value;
   const input_Phone_Number =
     document.getElementById("input_Phone_Number").value;
-  const input_Social_Security_Number = document.getElementById(
-    "input_Social_Security_Number"
-  ).value;
   const input_Drivers_License = document.getElementById(
     "input_Drivers_License"
   ).value;
@@ -41,10 +38,14 @@ btn_create.onclick = (e) => {
   const Gender = document.getElementById("Gender").value;
   const input_Shareholder_Status = document.getElementById(
     "input_Shareholder_Status"
-  ).value;
+  );
   const Benefit_Plans = document.getElementById("Benefit_Plans").value;
   const input_Ethnicity = document.getElementById("input_Ethnicity").value;
-
+  if (input_Shareholder_Status.checked == true) {
+    input_Shareholder_Status.value = true;
+  } else {
+    input_Shareholder_Status.value = false;
+  }
   const data_Hr = {
     Employee_ID: input_id,
     First_Name: input_First_Name,
@@ -57,11 +58,11 @@ btn_create.onclick = (e) => {
     Zip: input_zip,
     Email: input_email,
     Phone_Number: input_Phone_Number,
-    Social_Security_Number: input_Social_Security_Number,
+    Social_Security_Number: input_SSN,
     Drivers_License: input_Drivers_License,
     Marital_Status: input_Marital_Status,
     Gender: Gender,
-    Shareholder_Status: input_Shareholder_Status,
+    Shareholder_Status: input_Shareholder_Status.value,
     Benefit_Plans: Benefit_Plans,
     Ethnicity: input_Ethnicity,
   };
@@ -79,35 +80,54 @@ btn_create.onclick = (e) => {
     Paid_Last_Year: input_pay_last_year,
   };
 
-  //Post personal
-  fetch("http://localhost:54418/api/Personals", {
-    method: "POST", // or 'PUT'
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data_Hr),
-  })
-    .then((response) => response.json())
-    .then((data_Hr) => {
-      alert("Hr: Create Success:");
-    })
-    .catch((error) => {
-      alert("Hr: Create Faild:");
-    });
+  //checkID && Employee_Number
+  fetch("http://127.0.0.1/payroldb/public/api/employee")
+    .then((res) => res.json())
+    .then((data) => {
+      const check = data.find((item) => {
+        return (
+          item.idEmployee === parseInt(input_id) ||
+          item.Employee_Number === parseInt(input_Employee_Number)
+        );
+      });
+      if (check) {
+        alert("Nhân viên đã tồn tại!");
+      } else {
+        if (input_id == "" || input_Employee_Number == "") {
+          alert("Vui lòng nhập đầy đủ thông tin!");
+        } else {
+          // Post personal
+          fetch("http://localhost:54418/api/Personals", {
+            method: "POST", // or 'PUT'
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data_Hr),
+          })
+            .then((response) => response.json())
+            .then((data_Hr) => {
+              alert("Hr: Create Success");
+            })
+            .catch((error) => {
+              alert("Hr: Create Faild:");
+            });
 
-  //Post payroll
-  fetch("http://127.0.0.1/payroldb/public/api/employee", {
-    method: "POST", // or 'PUT'
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data_Payrol),
-  })
-    .then((response) => response.json())
-    .then((data_Payrol) => {
-      alert("Payroll: Create Success:");
-    })
-    .catch((error) => {
-      alert("Payroll: Create Faild:");
+          //Post payroll
+          fetch("http://127.0.0.1/payroldb/public/api/employee", {
+            method: "POST", // or 'PUT'
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data_Payrol),
+          })
+            .then((response) => response.json())
+            .then((data_Payrol) => {
+              alert("Payroll: Create Success");
+            })
+            .catch((error) => {
+              alert("Payroll: Create Faild:");
+            });
+        }
+      }
     });
 };

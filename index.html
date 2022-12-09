@@ -16,7 +16,7 @@
         rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="/bootstrap.min.js"> </script>
-    <title>Giao Diện Tích Hợp</title>
+    <title>Giao Diện Tích Hợp(Nhóm 8)</title>
 </head>
 
 <body>
@@ -105,12 +105,12 @@
 
                         <ul class="widget widget-menu unstyled">
                             
-                            <li><a href="#"><i class="icon-phone"></i>
+                            <li><a href="#"><i class="icon-map-marker"></i>
                                 <select id="Ethnicity" name="" id="">
-                                    <option value="">--Chọn--</option>
+                                    <option value="">--Dân tộc--</option>
                                     <option value="tay">Tày</option>
                                     <option value="khome">Khơ-me</option>
-                                    <option value="homong">H-mong</option>
+                                    <option value="homong">H-Mong</option>
                                     <option value="kinh">Kinh</option>
                                 </select>
                             </a></li>
@@ -146,7 +146,13 @@
                             </div> -->
                             <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display dataTable" width="100%" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" style="width: 100%;">
                                 <thead>
-                                    <tr role="row"><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+                                    <tr role="row">
+                                        
+                                        <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
+                                            Full Name
+                                        : activate to sort column descending" style="width: 91px;">
+                                            Employee Number
+                                        </th><th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="
                                             Full Name
                                         : activate to sort column descending" style="width: 91px;">
                                             Full Name
@@ -159,10 +165,6 @@
                                         : activate to sort column ascending" style="width: 202px;">
                                             Email
                                         </th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
-                                            Phone_Number
-                                        : activate to sort column ascending" style="width: 100px;">
-                                            Phone_Number
-                                        </th><th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
                                             Gender
                                         : activate to sort column ascending" style="width: 48px;">
                                             Gender
@@ -170,6 +172,11 @@
                                             Shareholder
                                         : activate to sort column ascending" style="width: 79px;">
                                             Shareholder
+                                        </th>
+                                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
+                                            Shareholder
+                                        : activate to sort column ascending" style="width: 79px;">
+                                        Ethnicity
                                         </th>
                                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="
                                             Shareholder
@@ -190,24 +197,25 @@
                                         
                                     
                             </tbody>
+                            
                                     
                             </table>
 
                             <div class="btn-box-row row-fluid">
         <!-- Tổng thu nhập theo shareholder(HR.Personal), giới tính(HR.Personal), dân tộc(HR.Personal), full-time(HR.Employment), part-time(HR.Employment) tính từ năm trước đến giờ (payroll.employee.to-date%last-year), theo phòng ban(HR.Job_History) -->
-                                <a href="#" class="btn-box big span4">
-                                    <i  class="icon-money"></i><b id="earn-shareholder">0</b>
+                                <a href="#" id="aa" class="btn-box big span4">
+                                    <i   class="icon-money"></i><b id="earn-shareholder">0</b>
                                     <p class="text-muted">
                                         Total Earnings
                                     </p>
         <!-- Tổng ngày nghỉ nhận được theo shareholder(HR.Personal), giới tính(HR.Personal), dân tộc(HR.Personal), full-time(HR.Employment), part-time(HR.Employment) tính từ năm trước đến giờ(cái ni đéo biết ở mô) -->
-                                </a><a href="#" class="btn-box big span4">
+                                </a><a href="#" id="bb" class="btn-box big span4">
                                     <i class="icon-calendar"></i><b id="total-vacationday">0</b>
                                     <p class="text-muted">
                                         Total Vacation Days
                                     </p>
         <!-- Trung bình benefits được trả cho shareholder(HR.Personal) và non-shareholder(HR.Personal) tới nay(HR.Job-History?) theo Benefits-Plan(HR.Personal) -->
-                                </a><a href="#" class="btn-box big span4">
+                                </a><a href="#" id="cc" class="btn-box big span4">
                                     <i class="icon-bar-chart"></i><b id="Average_benefits">0</b>
                                     <p class="text-muted">
                                         Average benefits paid

@@ -174,7 +174,7 @@
                           data-val-number="The field Employee_ID must be a number."
                           data-val-required="The Employee_ID field is required."
                           name="Employee_ID"
-                          type="text"
+                          type="number"
                         />
 
                         <span
@@ -198,7 +198,7 @@
                           data-val-length-max="50"
                           id="Last_Name"
                           name="Last_Name"
-                          type="text"
+                          type="number"
                           value=""
                         />
                         <span
@@ -286,17 +286,28 @@
                         >Pay Rate</label
                       >
                       <div class="controls">
-                        <input
+                        <!-- <input
                           id="input_Pay_Rate"
                           class="span6 text-box single-line"
                           data-val="true"
                           data-val-length="The field Last_Name must be a string with a maximum length of 50."
                           data-val-length-max="50"
-                          id="Last_Name"
                           name="Last_Name"
                           type="number"
                           value=""
-                        />
+                        /> -->
+                        <select name="" id="input_Pay_Rate">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
                         <span
                           class="field-validation-valid text-danger"
                           data-valmsg-for="Last_Name"
@@ -321,7 +332,7 @@
                           type="number"
                           value=""
                         /> -->
-                        <select name="" id="">
+                        <select name="" id="input_Payrate_ID">
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
@@ -586,7 +597,7 @@
                           data-val-length-max="50"
                           id="Phone_Number"
                           name="Phone_Number"
-                          type="text"
+                          type="number"
                           value=""
                         />
                         <span
@@ -597,7 +608,7 @@
                       </div>
                     </div>
 
-                    <div class="control-group">
+                    <!-- <div class="control-group">
                       <label
                         class="control-label col-md-2"
                         for="Social_Security_Number"
@@ -621,7 +632,7 @@
                           data-valmsg-replace="true"
                         ></span>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="control-group">
                       <label
@@ -705,7 +716,6 @@
                           id="Shareholder_Status"
                           name="Shareholder_Status"
                           type="checkbox"
-                          value="true"
                         /><input
                           name="Shareholder_Status"
                           type="hidden"
@@ -729,11 +739,10 @@
                           id="Benefit_Plans"
                           name="Benefit_Plans"
                         >
-                          <option value="1">a</option>
-                          <option value="2">ronaldovodich</option>
-                          <option value="3">messivodich</option>
-                          <option value="4">vietnamvodichwc</option>
-                          <option value="5">thanhnguyen</option>
+                          <option value="1">Medical Insurance</option>
+                          <option value="2">Disability Insurance</option>
+                          <option value="3">Life Insurance</option>
+                          <option value="4">Dental Insurance</option>
                         </select>
                         <span
                           class="field-validation-valid text-danger"
@@ -770,7 +779,7 @@
                           value="Create"
                           class="btn btn-default"
                         />
-                        <a class="btn btn-default" href="/Personals?Length=0"
+                        <a class="btn btn-default" href="/index.html"
                           >Back to List</a
                         >
                       </div>

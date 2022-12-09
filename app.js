@@ -25,8 +25,15 @@ function loadData() {
       .then((data_Payrol) => {
         const htmt = data_Hr.map((item_Hr, index) => {
           return `<tr class="gradeX odd">
+          <td style="text-align: center; padding-top: 30px ;color: skyblue; font-weight: 600; font-style: italic; font-size: 16px"  class=" ">
+          ${data_Payrol[index].Employee_Number}
+        </td>
                     <td class="  sorting_1">
-                        ${item_Hr.First_Name} ${item_Hr.Last_Name}
+                    ${
+                      item_Hr.Shareholder_Status == true
+                        ? `<i style="color: rgb(200, 64, 64);font-size: 30px;" class="icon-gift"></i> ${item_Hr.Last_Name} ${item_Hr.First_Name} `
+                        : `${item_Hr.Last_Name} ${item_Hr.First_Name}`
+                    }
                     </td>
                     <td class=" ">
                       ${item_Hr.City}
@@ -34,26 +41,32 @@ function loadData() {
                     <td class=" ">
                       ${item_Hr.Email}
                     </td>
-                    <td class=" ">
-                      ${item_Hr.Phone_Number}
-                    </td>
+                    
                     <td class="center ">
                     ${item_Hr.Gender == true ? "Male" : "Female"}
                     </td>
                     <td class="center ">
                     ${item_Hr.Shareholder_Status == true ? "Yes" : "No"}
                     </td>
+                    <td class="center ">
+                    ${item_Hr.Ethnicity}
+                    </td>
                     <td class=" ">
-                        ${data_Payrol[index].SSN}
+                        ${
+                          item_Hr.Social_Security_Number
+                            ? item_Hr.Social_Security_Number
+                            : data_Payrol[index].SSN
+                        }
                     </td>
                     <td class=" ">
                     ${data_Payrol[index].Vacation_Days}
                     </td>
                     <td class=" ">
-                        <a href="./edit.html">Edit</a> |
-                        <a onclick= "DeleteEmployee(${
+                        <a onclick="handleEdit(${
                           item_Hr.Employee_ID
-                        })" href="#">Delete</a>
+                        })" href="./edit.html" >Edit</a> |
+                        <a onclick= "DeleteEmployee(${item_Hr.Employee_ID}
+          )" href="#">Delete</a>
                     </td>
               </tr>`;
         });
@@ -66,10 +79,17 @@ function loadData() {
   });
 }
 
-loadData();
+(function Synchronous() {
+  const timerId = setInterval(loadData, 1000);
+  return timerId;
+})();
+
+function handleEdit(id) {
+  localStorage.setItem("id", id);
+}
 
 function DeleteEmployee(id) {
-  let text = `Are you sure delete ${id}?`;
+  let text = `Do you want to delete employee with ID ${id}?`;
   if (confirm(text) == true) {
     fetch(`http://localhost:54418/api/Personals/${id}`, {
       method: "DELETE",
@@ -676,14 +696,14 @@ Ethnicity.onchange = () => {
           .then((res) => res.json())
           .then((Personals) => {
             const shareholder = Personals.filter((item) => {
-              return item.Ethnicity === "Khơ-me";
+              return item.Ethnicity === "H-Mong";
             });
 
             const shareholder_E = employee.filter((item) => {
               const a = Personals.find((iteme) => {
                 return (
                   item.idEmployee === iteme.Employee_ID &&
-                  iteme.Ethnicity === "Khơ-me"
+                  iteme.Ethnicity === "H-Mong"
                 );
               });
               return a;
@@ -711,7 +731,7 @@ Ethnicity.onchange = () => {
                 earn_shareholder.textContent = new Intl.NumberFormat("vi-VN", {
                   style: "currency",
                   currency: "VND",
-                }).format(0);
+                }).format(total_Earn);
               });
 
             // Total vacationday handle
@@ -735,10 +755,10 @@ Ethnicity.onchange = () => {
                     }
                   });
                 });
-                Average_benefits.textContent = 0;
+                Average_benefits.textContent = Average_benefits_paid;
               });
             //
-            total_vacationday.textContent = 0;
+            total_vacationday.textContent = totalVacationDay;
           });
       });
   }
